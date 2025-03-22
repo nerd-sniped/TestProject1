@@ -1,0 +1,15 @@
+name: Trigger Astro Site Rebuild on README Change
+
+on:
+  push:
+    paths:
+      - 'README.md'
+    branches:
+      - main
+
+jobs:
+  call-webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Netlify to Rebuild Astro Site
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/67de51737229409ef5ec725a
